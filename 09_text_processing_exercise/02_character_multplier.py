@@ -1,21 +1,20 @@
+def character_multiplier(first_str, second_str):
+    total_sum = 0
+    min_length = min(len(first_str), len(second_str))
+
+    for index in range(min_length):
+        total_sum += ord(first_str[index]) * ord(second_str[index])
+
+    if len(first_str) > len(second_str):
+        for index in range(len(second_str), len(first_str)):
+            total_sum += ord(first_str[index])
+    elif len(second_str) > len(first_str):
+        for index in range(len(first_str), len(second_str)):
+            total_sum += ord(second_str[index])
+
+    return total_sum
+
+
 first_string, second_string = input().split()
-
-total_sum = 0
-
-if len(first_string) > len(second_string):
-    for index in range(len(second_string)):
-        total_sum += ord(first_string[index]) * ord(second_string[index])
-    for index in range(len(second_string), len(first_string)):
-        total_sum += ord(first_string[index])
-
-elif len(first_string) < len(second_string):
-    for index in range(len(first_string)):
-        total_sum += ord(first_string[index]) * ord(second_string[index])
-    for index in range(len(first_string), len(second_string)):
-        total_sum += ord(second_string[index])
-
-else:
-    for index in range(len(second_string)):
-        total_sum += ord(first_string[index]) * ord(second_string[index])
-
-print(total_sum)
+result = (character_multiplier(first_string, second_string))
+print(result)
